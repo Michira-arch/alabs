@@ -1,6 +1,6 @@
-# CSynth Application
+Abiotic Labs Application
 
-This repository contains the frontend artifacts for the CSynth web application. 
+This repository contains the frontend artifacts for the Abiotic Labs web application. 
 
 ## Build and Run
 
@@ -22,4 +22,4 @@ This repository contains the frontend artifacts for the CSynth web application.
 ## Structure
 - `frontend/`: Contains the React/Vite web application.
 
-The backend infrastructure and other internal resources are intentionally kept out of this repository.
+
