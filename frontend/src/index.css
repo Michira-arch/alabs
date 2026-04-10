@@ -1,0 +1,31 @@
+/* ─── GLOBAL RESET & SHARED TOKENS ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  /* Shared */
+  --transition-fast: 0.13s ease;
+  --transition-mid: 0.2s ease;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; }
+img { max-width: 100%; display: block; }
+
+/* Toast (shared) */
+.toast {
+  position: fixed; bottom: 24px; right: 24px;
+  background: #111410; color: rgba(255,255,255,.9);
+  padding: 11px 18px; border-radius: 8px; font-size: 13px;
+  z-index: 9999; transform: translateY(70px); opacity: 0;
+  transition: all .3s cubic-bezier(.34,1.56,.64,1); pointer-events: none;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
