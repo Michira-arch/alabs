@@ -14,4 +14,4 @@ dist-ssr/
 
 # Ignore old/unused root HTML files not part of the frontend build
 a-core.html
-index.html
+old_index.html
