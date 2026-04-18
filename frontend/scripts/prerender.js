@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { preview } from 'vite'
-import puppeteer from 'puppeteer-core'
+import puppeteer from 'puppeteer'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const resolve = (p) => path.resolve(__dirname, p)
@@ -16,12 +16,11 @@ async function prerender() {
   
   const url = server.resolvedUrls.local[0]
   
-  console.log(`Launching Edge to render ${url}...`)
+  console.log(`Launching browser instance to render ${url}...`)
   
-  // Use local Edge browser on Windows
   const browser = await puppeteer.launch({
-    executablePath: "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
-    headless: 'new'
+    headless: 'new',
+    args: ['--no-sandbox', '--disable-setuid-sandbox'] // Crucial for Linux deployment (Render)
   })
   
   const page = await browser.newPage()
