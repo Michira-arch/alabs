@@ -37,6 +37,10 @@ async function prerender() {
   console.log(`Writing prerendered HTML to ${dest}...`)
   fs.writeFileSync(dest, html)
   
+  // Also save as 404.html for GitHub Pages SPA routing
+  const dest404 = resolve('../dist/404.html')
+  fs.writeFileSync(dest404, html)
+  
   await browser.close()
   server.httpServer.close()
   console.log('Prerendering complete!')

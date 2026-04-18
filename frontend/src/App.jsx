@@ -37,6 +37,7 @@ import Contribute from './platform/pages/Contribute'
 
 /* Shared */
 import Toast from './components/Toast'
+import NotFound from './components/NotFound'
 
 export default function App() {
   const [toast, setToast] = useState({ message: '', visible: false })
@@ -84,6 +85,9 @@ export default function App() {
           <Route path="changelog" element={<Changelog />} />
           <Route path="contribute" element={<Contribute showToast={showToast} />} />
         </Route>
+
+        {/* 404 Catch-All Route */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Toast message={toast.message} visible={toast.visible} />
       </>
