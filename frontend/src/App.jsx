@@ -2,7 +2,16 @@ import { Routes, Route } from 'react-router-dom'
 import { useState, useCallback } from 'react'
 import { AuthProvider } from './hooks/useAuth'
 
-/* Machine (startup website) */
+/* Abiotic Labs home */
+import AbioticHome from './abiotic/AbioticHome'
+
+/* Abiotic Labs division placeholders */
+import Drugs from './abiotic/pages/Drugs'
+import Materials from './abiotic/pages/Materials'
+import Fuels from './abiotic/pages/Fuels'
+import Industrial from './abiotic/pages/Industrial'
+
+/* Abiotic Nutrition (formerly "Machine" startup website) */
 import MachineLayout from './machine/MachineLayout'
 import Home from './machine/pages/Home'
 import Technology from './machine/pages/Technology'
@@ -41,15 +50,24 @@ export default function App() {
     <AuthProvider>
       <>
       <Routes>
-        {/* Machine startup website */}
-        <Route element={<MachineLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/technology" element={<Technology />} />
-          <Route path="/research" element={<Research />} />
-          <Route path="/vision" element={<Vision />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/investors" element={<Investors showToast={showToast} />} />
-          <Route path="/contact" element={<Contact showToast={showToast} />} />
+        {/* Abiotic Labs landing page */}
+        <Route path="/" element={<AbioticHome />} />
+
+        {/* Abiotic Labs division placeholders */}
+        <Route path="/drugs"      element={<Drugs />} />
+        <Route path="/materials"  element={<Materials />} />
+        <Route path="/fuels"      element={<Fuels />} />
+        <Route path="/industrial" element={<Industrial />} />
+
+        {/* Abiotic Nutrition sub-domain (formerly Machine startup website) */}
+        <Route path="/nutrition" element={<MachineLayout />}>
+          <Route index element={<Home />} />
+          <Route path="technology" element={<Technology />} />
+          <Route path="research" element={<Research />} />
+          <Route path="vision" element={<Vision />} />
+          <Route path="about" element={<About />} />
+          <Route path="investors" element={<Investors showToast={showToast} />} />
+          <Route path="contact" element={<Contact showToast={showToast} />} />
         </Route>
 
         {/* AbioCore platform */}

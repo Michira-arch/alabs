@@ -1,0 +1,49 @@
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
+import { preview } from 'vite'
+import puppeteer from 'puppeteer-core'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const resolve = (p) => path.resolve(__dirname, p)
+
+async function prerender() {
+  console.log('Starting preview server for prerendering...')
+  const server = await preview({
+    preview: { port: 5173 },
+    server: { host: 'localhost' }
+  })
+  
+  const url = server.resolvedUrls.local[0]
+  
+  console.log(`Launching Edge to render ${url}...`)
+  
+  // Use local Edge browser on Windows
+  const browser = await puppeteer.launch({
+    executablePath: "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+    headless: 'new'
+  })
+  
+  const page = await browser.newPage()
+  
+  // Route capture
+  await page.goto(url, { waitUntil: 'networkidle0' })
+  
+  // Let animations/state settle
+  await new Promise(r => setTimeout(r, 1000))
+  
+  const html = await page.content()
+  
+  const dest = resolve('../dist/index.html')
+  console.log(`Writing prerendered HTML to ${dest}...`)
+  fs.writeFileSync(dest, html)
+  
+  await browser.close()
+  server.httpServer.close()
+  console.log('Prerendering complete!')
+}
+
+prerender().catch(err => {
+  console.error('Error during prerendering:', err)
+  process.exit(1)
+})

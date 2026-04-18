@@ -4,8 +4,8 @@ const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
-  const [token, setToken] = useState(() => localStorage.getItem('abioc_token') || null)
-  const [loading, setLoading] = useState(!!localStorage.getItem('abioc_token'))
+  const [token, setToken] = useState(() => typeof window !== 'undefined' ? localStorage.getItem('abioc_token') : null)
+  const [loading, setLoading] = useState(() => typeof window !== 'undefined' ? !!localStorage.getItem('abioc_token') : false)
 
   // On mount, verify stored token and load user
   useEffect(() => {
