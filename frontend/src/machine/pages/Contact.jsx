@@ -26,10 +26,10 @@ function ContactForm({ title, note, formType, orgLabel, stages, showToast }) {
           stage_focus: stageRef.current?.value || '',
         })
       })
-      setSent(true)
+      setSent(false)
       showToast?.("Message sent — we'll respond within 48 hours.")
     } catch {
-      showToast?.('Failed to send — please try again.')
+      showToast?.('Failed to send, please use email instead elington@bld.co.ke')
     }
     setLoading(false)
   }
@@ -69,6 +69,7 @@ export default function Contact({ showToast }) {
         <span className="phdr-label">Get in Touch</span>
         <div className="phdr-title">Contact</div>
         <p className="phdr-deck">We respond to every serious inquiry within 48 hours.</p>
+        <p className="phdr-deck">elington@bld.co.ke</p>
         <div className="phdr-rule"></div>
       </div>
       <div className="broadsheet">
@@ -80,7 +81,9 @@ export default function Contact({ showToast }) {
         <div style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid var(--rule)', display: 'flex', gap: '5rem', flexWrap: 'wrap' }}>
           <div>
             <div style={{ fontFamily: 'var(--mono)', fontSize: '0.56rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--ink3)', marginBottom: '0.5rem' }}>Direct Email</div>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: '0.85rem' }}>hello@machine.systems</div>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: '0.85rem' }}>
+              <a href="mailto:elington@bld.co.ke" style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid var(--ink3)', paddingBottom: '0.1rem' }}>elington@bld.co.ke</a>
+            </div>
           </div>
           <div>
             <div style={{ fontFamily: 'var(--mono)', fontSize: '0.56rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--ink3)', marginBottom: '0.5rem' }}>Response Time</div>
