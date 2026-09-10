@@ -1,4 +1,5 @@
 import { Link, useOutletContext } from 'react-router-dom'
+import SEO from '../../components/SEO'
 
 const formulas = ['C₆H₁₂O₆','C₁₂H₂₂O₁₁','H₂N–CH₂–COOH','C₆₃H₈₈CoN₁₄O₁₄P','C₂H₅NO₂','C₁₂H₂₄N₂O₄','C₅H₉NO₄','C₆H₁₄N₄O₂','C₅H₁₀O₅','C₂₁H₂₀O₆','C₁₀H₁₆N₅O₁₃P₃','C₂₀H₃₀O','fructose · sorbitol · ribose · glucose · sucrose · curcumin · ATP · cholesterol · retinol · leucine']
 
@@ -8,6 +9,11 @@ export default function Home() {
 
   return (
     <>
+      <SEO
+        title="Abiotic Nutrition · Food from Electricity & Chemistry"
+        description="Synthesizing all nutritional molecules electrically without biological agriculture. Pre-seed deep technology."
+      />
+
       {/* HERO */}
       <section className="hero">
         <div className="hero-rule"></div>

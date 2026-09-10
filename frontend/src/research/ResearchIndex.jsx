@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { ARTICLES } from '../data/articles'
+import SEO from '../components/SEO'
 
 export default function ResearchIndex() {
   const [selectedCategory, setSelectedCategory] = useState('All')
@@ -19,6 +20,11 @@ export default function ResearchIndex() {
 
   return (
     <div className="rs-container">
+      <SEO
+        title="Research & Publications · Abiotic Labs"
+        description="Preprints, technical notes, and working papers on forward reaction search, reaction surrogates, and electrosynthesis."
+      />
+
       {/* MASTHEAD */}
       <section className="rs-masthead">
         <span className="rs-kicker">Scientific Output &amp; Technical Dispatches</span>

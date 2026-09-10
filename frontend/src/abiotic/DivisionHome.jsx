@@ -1,4 +1,5 @@
 import { Link, useOutletContext } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 export default function DivisionHome({ 
   label, 
@@ -28,6 +29,11 @@ export default function DivisionHome({
 
   return (
     <>
+      <SEO
+        title={`${label} · Abiotic Labs`}
+        description={heroDesc || `${label} — molecular pathway intelligence for non-biological synthesis.`}
+      />
+
       {/* HERO */}
       <section className="hero">
         <div className="hero-rule"></div>

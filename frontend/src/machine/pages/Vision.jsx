@@ -1,3 +1,5 @@
+import SEO from '../../components/SEO'
+
 const useCases = [
   { n: 'I', title: 'Famine & Humanitarian Crisis', body: 'When agriculture collapses — through drought, conflict, or displacement — the only response available today is logistics. You move food to where people are. Machine synthesis changes the equation: you synthesize nutrition where people are, using local electrical infrastructure.', related: 'UN World Food Programme · ICRC · sovereign emergency stockpiling programs · national food security agencies' },
   { n: 'II', title: 'Climate Disruption', body: 'A large-scale volcanic event, sustained atmospheric disruption, or regional nuclear exchange each have the same agricultural effect: they reduce photosynthetically available light, destroying crop yields globally. Machine synthesis does not depend on sunlight, growing seasons, or soil chemistry.', related: 'Existential risk research · government resilience planning · sovereign wealth funds with food security mandates' },
@@ -8,6 +10,11 @@ const useCases = [
 export default function Vision() {
   return (
     <>
+      <SEO
+        title="Vision & Long Thesis · Abiotic Nutrition"
+        description="Decoupling caloric survival from agriculture to provide planetary resilience and interplanetary life-support."
+      />
+
       <div className="phdr">
         <span className="phdr-label">Purpose</span>
         <div className="phdr-title">Vision</div>

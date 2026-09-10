@@ -1,8 +1,14 @@
 import { Link } from 'react-router-dom'
+import SEO from '../../components/SEO'
 
 export default function About() {
   return (
     <>
+      <SEO
+        title="About & Team · Abiotic Nutrition"
+        description="The team and purpose behind machine-discovered electrochemical nutrition synthesis."
+      />
+
       <div className="phdr">
         <span className="phdr-label">Company</span>
         <div className="phdr-title">About</div>

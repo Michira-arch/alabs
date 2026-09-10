@@ -1,6 +1,13 @@
+import SEO from '../../components/SEO'
+
 export default function Technology() {
   return (
     <>
+      <SEO
+        title="Technology & Discovery Engine · Abiotic Nutrition"
+        description="Machine discovery engine for electrically-driven synthesis pathways to nutritional molecules."
+      />
+
       <div className="phdr">
         <span className="phdr-label">Platform</span>
         <div className="phdr-title">The Discovery Engine</div>
@@ -10,13 +17,13 @@ export default function Technology() {
       <div className="broadsheet">
         <div className="section-mark">How It Works</div>
         <p className="opening" style={{ fontSize: 'clamp(1.3rem,2.5vw,2rem)', maxWidth: '28ch', marginBottom: '3rem' }}>
-          The engine takes a target nutrition molecule, then searches chemical space for viable synthesis pathways.
+          The engine takes target nutrition molecules and searches forward and latent chemical space for viable synthesis pathways.
         </p>
         <div>
           {[
             { n: '1', title: 'Molecule Targeting', body: 'The system begins with a target nutrition molecule and its structural representation. Molecular graphs are the primary working format, preserving bond topology, stereochemistry, and functional group context for the neural network.', note: 'Inputs: molecular structures (SELFIES / graph).' },
-            { n: '2', title: 'Retrosynthetic Search', body: 'A neural network performs retrosynthesis; working backward from the target to identify plausible precursor molecules and reaction steps, primarily working in latent space.', note: 'Architecture: Multi-head Self Convolution base model' },
-            { n: '3', title: 'Scoring', body: 'All suggested paths are evaluated for physics compliance, and chemical plausibility.', note: 'Constraints: chemical feasibility · thermodynamic plausibility · machineability' },
+            { n: '2', title: 'Forward Trajectory Search', body: 'A neural network performs forward and latent reaction search, projecting state propagation from elemental C1 precursors (CO₂, formate) and scoring step-by-step electrochemical transitions.', note: 'Architecture: Multi-head graph neural network with interfacial field priors' },
+            { n: '3', title: 'Scoring & Feasibility', body: 'All suggested paths are evaluated for physics compliance, thermodynamic feasibility windows, and electrocatalytic plausibility.', note: 'Constraints: overpotential windows · solvent breakdown limits · machineability' },
             { n: '4', title: 'Output', body: 'High scoring suggestions are presented and comprehensively tested in simulation, with the ones that pass being evaluated physically for the final proof', note: 'Output: working pathways · feasibility score breakdown · precursor availability assessment · Energy efficiency metrics' },
           ].map((step) => (
             <div className="tech-step" key={step.n}>

@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
+import SEO from '../../components/SEO'
 
 const milestones = [
   { done: true, text: 'Problem and constraint framework defined' },
-  { done: true, text: 'GNN architecture for retrosynthesis selected and designed' },
+  { done: true, text: 'GNN architecture for forward reaction trajectory search selected and designed' },
   { done: true, text: 'Electrochemical feasibility scoring model in development' },
   { done: false, text: 'Proof-of-concept compute demo — glucose route discovery' },
   { done: false, text: 'First academic partner confirmed' },
@@ -29,6 +30,11 @@ export default function Investors({ showToast }) {
 
   return (
     <>
+      <SEO
+        title="Investors & Pre-Seed Round · Abiotic Nutrition"
+        description="Pre-seed investment materials for Abiotic Nutrition. Molecule discovery engine for electrochemical synthesis."
+      />
+
       <div className="phdr">
         <span className="phdr-label">Pre-Seed Round</span>
         <div className="phdr-title">Investors</div>
@@ -83,14 +89,35 @@ export default function Investors({ showToast }) {
           <div className="bn-item" style={{ paddingLeft: '3rem' }}><span className="bn-num">~30%</span><span className="bn-label">IP, legal &amp; operations</span></div>
         </div>
         <p className="body-text" style={{ maxWidth: '54ch', marginBottom: '3rem' }}>This round funds the glucose proof of concept, the first academic partnership, and the provisional patent — the three milestones that de-risk the Series Seed.</p>
-        <div style={{ maxWidth: '420px' }}>
-          <div className="fg"><label>Name</label><input type="text" placeholder="Full name" /></div>
-          <div className="fg"><label>Firm</label><input type="text" placeholder="Fund name" /></div>
-          <div className="fg"><label>Email</label><input type="email" placeholder="you@fund.com" /></div>
-          <div className="fg"><label>Note</label><textarea placeholder="Stage focus, thesis context..."></textarea></div>
-          <button className="submit-btn" onClick={handleSubmit}>
-            {sent ? 'Sent ✓' : 'Request 30-minute briefing →'}
-          </button>
+
+        {/* DIRECT INVESTOR CONTACT */}
+        <div style={{ padding: '2.5rem', border: '1px solid var(--rule)', background: 'var(--paper2, #EDE7D8)', maxWidth: '580px' }}>
+          <div style={{ fontFamily: 'var(--serif)', fontSize: '1.4rem', fontWeight: 700, marginBottom: '0.6rem' }}>
+            Request Pre-Seed Briefing &amp; Materials
+          </div>
+          <p style={{ fontFamily: 'var(--body)', fontSize: '0.98rem', color: 'var(--ink2)', lineHeight: 1.6, marginBottom: '1.6rem' }}>
+            We conduct 30-minute technical diligence briefings with institutional funds and angel syndicates. Direct all inquiries to <strong>investors@bld.co.ke</strong>.
+          </p>
+          <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
+            <a
+              href="mailto:investors@bld.co.ke?subject=Pre-Seed%20Investor%20Inquiry%20%E2%80%94%20Briefing%20Request&body=Hello%20Elington%20%26%20Abiotic%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20your%20pre-seed%20round.%0A%0AFirm%2FInvestor%3A%20%0AStage%20Focus%3A%20%0ATypical%20Check%20Size%3A%20%0ATypical%20Thesis%20Context%3A%20"
+              className="submit-btn"
+              style={{ textDecoration: 'none', display: 'inline-block', width: 'auto', padding: '0.7rem 1.6rem' }}
+            >
+              Compose Email to investors@bld.co.ke →
+            </a>
+            <button
+              type="button"
+              className="submit-btn"
+              style={{ width: 'auto', padding: '0.7rem 1.2rem', background: 'transparent', color: 'var(--ink)', border: '1px solid var(--rule)' }}
+              onClick={() => {
+                navigator.clipboard.writeText('investors@bld.co.ke')
+                showToast?.('Copied investors@bld.co.ke to clipboard')
+              }}
+            >
+              Copy Email
+            </button>
+          </div>
         </div>
       </div>
     </>

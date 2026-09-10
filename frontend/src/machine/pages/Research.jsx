@@ -3,11 +3,25 @@ import { ARTICLES } from '../../data/articles'
 
 const threads = [
   {
-    title: 'Neural Architecture for Retrosynthetic Search in Electrochemical/Latent Space',
-    desc: 'Formulating step-wise electrochemical synthesis as a constrained trajectory in continuous molecular embedding space.',
-    status: 'Preprint Available',
+    title: 'Pioneering Forward Reaction Search: Why Retrosynthesis Fails for Abiotic Matter',
+    desc: 'Why chemical AI must abandon backward template-matching, the myth of pharmaceutical transferability, and the physics of forward electrochemical discovery.',
+    status: 'Flagship Research Note',
     year: '2026 —',
-    slug: 'neural-retrosynthetic-search-electrochemical-space'
+    slug: 'pioneering-forward-reaction-search-abiotic-matter'
+  },
+  {
+    title: 'The Surrogate Dilemma: Quantum Intractability, Truncated Datasets, and Generalization',
+    desc: 'Analyzing the mathematical limits of neural reaction surrogates, the curse of the Schrödinger equation, and the path to generalizable electrochemical discovery.',
+    status: 'Technical Note Available',
+    year: '2026 —',
+    slug: 'the-surrogate-dilemma-quantum-mechanics-generalization'
+  },
+  {
+    title: 'Proof of Concept: Forward Reaction Search for Glucose Synthesis from C1 Feedstocks',
+    desc: 'Navigating forward electrochemical reaction trajectories to synthesize D-glucose from CO₂ and formate without biological enzymes.',
+    status: 'Research Note Available',
+    year: '2026 —',
+    slug: 'glucose-synthesis-route-discovery'
   },
   {
     title: 'Training: Loss Functions & Thermodynamic Feasibility Scoring',
@@ -15,13 +29,6 @@ const threads = [
     status: 'Technical Note Available',
     year: '2026 —',
     slug: 'loss-functions-thermodynamic-feasibility-scoring'
-  },
-  {
-    title: 'Proof of Concept: Glucose Synthesis Route Discovery via Machine Search',
-    desc: 'Given glucose (dextrose, C₆H₁₂O₆) as target molecule, evaluating automated non-biological synthesis pathways from C1 feedstocks.',
-    status: 'Research Note Available',
-    year: '2026 —',
-    slug: 'glucose-synthesis-route-discovery'
   },
 ]
 

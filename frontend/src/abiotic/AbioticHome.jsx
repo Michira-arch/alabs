@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 import './abiotic-home.css'
 
 /* ── Inline SVG logo mark (shared across nav + hero) ─────────────── */
@@ -174,17 +175,35 @@ export default function AbioticHome() {
 
   return (
     <div className="ah-root">
+      <SEO
+        title="Abiotic Labs · Molecular Pathway Intelligence"
+        description="Pioneering forward reaction search to discover and execute non-biological synthesis pathways for nutrition, drugs, materials, and fuels."
+      />
 
       {/* NAV */}
       <nav className="ah-nav">
-        <Link to="/" className="ah-nav-logo" aria-label="Abiotic Labs home">
-          <LogoMark size={32} />
-        </Link>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.4rem', flexWrap: 'wrap' }}>
+          <Link to="/" className="ah-nav-logo" aria-label="Abiotic Labs home">
+            <LogoMark size={32} />
+          </Link>
+          <div className="ah-nav-divisions">
+            <span className="ah-nav-label">Divisions</span>
+            <Link to="/nutrition">Nutrition</Link>
+            <span className="ah-nav-dot">·</span>
+            <Link to="/drugs">Drugs</Link>
+            <span className="ah-nav-dot">·</span>
+            <Link to="/materials">Materials</Link>
+            <span className="ah-nav-dot">·</span>
+            <Link to="/fuels">Fuels</Link>
+            <span className="ah-nav-dot">·</span>
+            <Link to="/industrial">Industrial</Link>
+          </div>
+        </div>
+
         <ul className="ah-nav-links">
           <li><a href="#mission">Mission</a></li>
-          <li><a href="#divisions">Divisions</a></li>
-          <li><Link to="/nutrition">Abiotic Nutrition</Link></li>
-          <li><Link to="/research" style={{ color: 'var(--green-mid, #2d9c6e)' }}>Research &amp; Publications →</Link></li>
+          <li><Link to="/research" style={{ color: 'var(--green-mid, #2d9c6e)', fontWeight: 500 }}>Research &amp; Publications →</Link></li>
+          <li><Link to="/nutrition/contact">Contact</Link></li>
         </ul>
       </nav>
 

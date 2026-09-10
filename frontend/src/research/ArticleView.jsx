@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { getArticleBySlug, ARTICLES } from '../data/articles'
 import { useEffect } from 'react'
+import SEO from '../components/SEO'
 
 export default function ArticleView() {
   const { slug } = useParams()
@@ -13,6 +14,10 @@ export default function ArticleView() {
   if (!article) {
     return (
       <div className="art-article-container" style={{ textAlign: 'center', padding: '6rem 1rem' }}>
+        <SEO
+          title="Publication Not Found · Abiotic Labs"
+          description="The requested research paper or technical note does not exist."
+        />
         <h2 style={{ fontFamily: 'var(--serif, serif)', fontSize: '2rem', marginBottom: '1rem' }}>Publication Not Found</h2>
         <p style={{ fontFamily: 'var(--body, serif)', color: 'var(--ink2)', marginBottom: '2rem' }}>
           The requested research article or dispatch does not exist.
@@ -34,6 +39,32 @@ export default function ArticleView() {
 
   return (
     <article className="art-article-container">
+      <SEO
+        title={`${article.title} · Abiotic Labs Research`}
+        description={article.subtitle || article.abstract.slice(0, 155)}
+        type="article"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'ScholarlyArticle',
+          headline: article.title,
+          description: article.subtitle || article.abstract,
+          author: {
+            '@type': 'Organization',
+            name: article.author || 'Abiotic Labs Research Team'
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: 'Abiotic Labs',
+            logo: {
+              '@type': 'ImageObject',
+              url: 'https://bld.co.ke/favicon.svg'
+            }
+          },
+          datePublished: article.date,
+          identifier: article.doi || article.id
+        }}
+      />
+
       {/* BACK NAVIGATION */}
       <div className="art-back-nav">
         <Link to="/research" className="art-back-link">

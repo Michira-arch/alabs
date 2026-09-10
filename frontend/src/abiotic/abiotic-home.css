@@ -52,6 +52,64 @@
 
 .ah-nav-links a:hover { color: #0e0e0c; }
 
+/* Divisions Dock */
+.ah-nav-divisions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(14, 14, 12, 0.04);
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(14, 14, 12, 0.08);
+}
+
+.ah-nav-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #1a6b4a;
+  font-weight: 500;
+  margin-right: 4px;
+}
+
+.ah-nav-divisions a {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #55524c;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  padding: 2px 2px;
+}
+
+.ah-nav-divisions a:hover {
+  color: #1a6b4a;
+}
+
+.ah-nav-dot {
+  color: rgba(14, 14, 12, 0.2);
+  font-size: 10px;
+}
+
+@media (max-width: 980px) {
+  .ah-nav {
+    padding: 14px 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .ah-nav-divisions {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 6px 12px;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 /* ── HERO ───────────────────────────────────────────────────────────── */
 .ah-hero {
   min-height: 100vh;
