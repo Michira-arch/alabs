@@ -37,7 +37,7 @@ export default function About() {
             <div>
               <div className="tm-name">Open Role</div>
               <span className="tm-role" style={{ color: 'var(--ink3)' }}>Computational Chemist</span>
-              <Link className="tm-link" to="/contact">Inquire →</Link>
+              <Link className="tm-link" to="/nutrition/contact">Inquire →</Link>
             </div>
             <p style={{ fontSize: '0.9rem', color: 'var(--ink2)', lineHeight: '1.82' }}>Seeking researchers with experience in GNN-based retrosynthesis, molecular property prediction, or electrochemical reaction modeling. Preference for candidates with both ML and chemistry backgrounds.</p>
           </div>
@@ -45,7 +45,7 @@ export default function About() {
             <div>
               <div className="tm-name">Open Role</div>
               <span className="tm-role" style={{ color: 'var(--ink3)' }}>Electrochemist</span>
-              <Link className="tm-link" to="/contact">Inquire →</Link>
+              <Link className="tm-link" to="/nutrition/contact">Inquire →</Link>
             </div>
             <p style={{ fontSize: '0.9rem', color: 'var(--ink2)', lineHeight: '1.82' }}>Seeking experimental electrochemists with synthesis experience for validation partnership or full-time collaboration on Phase I. Academic collaboration also considered.</p>
           </div>

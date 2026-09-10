@@ -88,7 +88,7 @@ const DIVISIONS = [
     num: '02',
     label: 'Abiotic Drugs',
     desc: 'Pharmaceutical-grade synthesis pathways for active compounds, bioavailable molecules, and novel drug candidates — without biological intermediaries.',
-    status: 'planned',
+    status: 'active',
     href: '/drugs',
     internal: true,
     icon: (
@@ -105,7 +105,7 @@ const DIVISIONS = [
     num: '03',
     label: 'Abiotic Materials',
     desc: 'Designer polymers, structural compounds, and advanced materials synthesised through guided abiotic pathways — targeting properties not found in nature.',
-    status: 'planned',
+    status: 'active',
     href: '/materials',
     internal: true,
     icon: (
@@ -121,7 +121,7 @@ const DIVISIONS = [
     num: '04',
     label: 'Abiotic Fuels',
     desc: 'Carbon-neutral and high-energy-density fuel compounds via abiotic chemistry. From hydrogen carriers to synthetic hydrocarbons built without geological time.',
-    status: 'planned',
+    status: 'active',
     href: '/fuels',
     internal: true,
     icon: (
@@ -136,7 +136,7 @@ const DIVISIONS = [
     num: '05',
     label: 'Abiotic Industrial',
     desc: 'Bulk chemical synthesis at scale — acids, bases, solvents, and process intermediates — optimised for cost, efficiency, and environmental footprint.',
-    status: 'planned',
+    status: 'active',
     href: '/industrial',
     internal: true,
     icon: (
@@ -184,7 +184,7 @@ export default function AbioticHome() {
           <li><a href="#mission">Mission</a></li>
           <li><a href="#divisions">Divisions</a></li>
           <li><Link to="/nutrition">Abiotic Nutrition</Link></li>
-          <li><Link to="/platform">Platform →</Link></li>
+          <li><Link to="/research" style={{ color: 'var(--green-mid, #2d9c6e)' }}>Research &amp; Publications →</Link></li>
         </ul>
       </nav>
 
@@ -202,7 +202,7 @@ export default function AbioticHome() {
         </p>
         <div className="ah-cta">
           <a href="#divisions" className="ah-btn ah-btn-primary" id="btn-explore">Explore Divisions</a>
-          <a href="#mission"   className="ah-btn ah-btn-ghost"   id="btn-mission">Our Mission</a>
+          <Link to="/research" className="ah-btn ah-btn-ghost" id="btn-research">Read Publications</Link>
         </div>
         <div className="ah-scroll-hint" aria-hidden="true">
           <span>Scroll</span>
@@ -280,9 +280,17 @@ export default function AbioticHome() {
       </section>
 
       {/* FOOTER */}
-      <footer className="ah-footer">
-        <p className="ah-footer-copy">© 2026 Abiotic Labs. All rights reserved.</p>
-        <p className="ah-footer-tagline">Molecular Pathway Intelligence</p>
+      <footer className="ah-footer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem', padding: '3rem 48px' }}>
+        <div>
+          <p className="ah-footer-copy">© 2026 Abiotic Labs. All rights reserved.</p>
+          <p className="ah-footer-tagline">Molecular Pathway Intelligence · Inquiries: <a href="mailto:hello@bld.co.ke" style={{ color: 'inherit' }}>hello@bld.co.ke</a></p>
+        </div>
+        <div style={{ display: 'flex', gap: '1.8rem', fontFamily: 'var(--mono, "DM Mono")', fontSize: '0.8rem' }}>
+          <Link to="/research" style={{ color: 'inherit', textDecoration: 'none' }}>Research</Link>
+          <Link to="/nutrition" style={{ color: 'inherit', textDecoration: 'none' }}>Nutrition</Link>
+          <Link to="/nutrition/contact" style={{ color: 'inherit', textDecoration: 'none' }}>Contact</Link>
+          <a href="mailto:research@bld.co.ke" style={{ color: '#1a6b4a', textDecoration: 'none' }}>research@bld.co.ke</a>
+        </div>
       </footer>
 
     </div>

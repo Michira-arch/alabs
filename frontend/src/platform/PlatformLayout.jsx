@@ -64,7 +64,7 @@ export default function PlatformLayout({ showToast }) {
           <NavLink to="/platform/contribute">Contribute</NavLink>
         </nav>
         <div className="topbar-end">
-          <Link to="/" className="hbtn hbtn-ghost">← Machine</Link>
+          <Link to="/nutrition" className="hbtn hbtn-ghost">← Machine</Link>
           {!loading && (
             user ? (
               <>

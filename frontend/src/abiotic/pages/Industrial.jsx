@@ -1,28 +1,29 @@
-import DivisionPlaceholder from '../DivisionPlaceholder'
-
-const icon = (
-  <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="4"  y="16" width="6" height="8" rx="1" stroke="#1a6b4a" strokeWidth="1.4" fill="none"/>
-    <rect x="11" y="10" width="6" height="14" rx="1" stroke="#1a6b4a" strokeWidth="1.4" fill="none"/>
-    <rect x="18" y="4"  width="6" height="20" rx="1" stroke="#1a6b4a" strokeWidth="1.4" fill="none"/>
-    <line x1="4" y1="24" x2="24" y2="24" stroke="#2d9c6e" strokeWidth="1.2" strokeLinecap="round" opacity="0.5"/>
-  </svg>
-)
+import DivisionHome from '../DivisionHome'
 
 export default function Industrial() {
   return (
-    <DivisionPlaceholder
-      num="05"
+    <DivisionHome
       label="Abiotic Industrial"
-      tagline="Bulk chemistry reimagined from the molecule up."
-      body="Abiotic Industrial will target high-volume commodity chemicals — acids, bases, solvents, and process intermediates — that currently depend on energy-intensive, fossil-routed production. By applying pathway intelligence at scale, we aim to discover abiotic synthesis routes that are cleaner, more adaptable, and closer to the point of use than current industrial processes."
-      signals={[
-        'Abiotic synthesis of bulk acids and bases (H₂SO₄, HCl, NaOH) from abundant feedstocks',
-        'Green solvents and process intermediates with lower environmental load',
-        'Decentralised production models — synthesis where the chemicals are needed',
-        'Pathway cost modelling integrated with energy and feedstock pricing',
-      ]}
-      icon={icon}
+      path="/industrial"
+      heroTitle="The Architecture of Bulk Chemistry."
+      heroDesc="Scaling the fundamental building blocks of industry with near-zero environmental footprint."
+      formulas={['H₂SO₄', 'NH₃', 'NaOH', 'Cl₂', 'Sulfuric Acid · Ammonia · Sodium Hydroxide · Chlorine']}
+      problemOpening="Industrial chemistry is the invisible backbone of civilization."
+      problemBody="Yet its methods remain rooted in the 20th century: massive heat, high pressure, and significant waste. We are reinventing bulk chemistry using electrochemical pathways that operate at lower temperatures and higher precision."
+      methodCol1Title="Process Efficiency"
+      methodCol1Desc="Minimizing energy loss in large-scale chemical transformations."
+      methodCol2Title="Waste Elimination"
+      methodCol2Desc="Designing pathways where every byproduct is a valuable input for another process."
+      methodCol3Title="Distributed Scaling"
+      methodCol3Desc="Moving from centralized mega-factories to modular, electricity-driven synthesis units."
+      roadmapTarget1="Base Acids & Bases"
+      roadmapMolecules1="Sulfuric Acid · Sodium Hydroxide · Hydrochloric Acid"
+      roadmapTarget2="Nitrogen Fixation"
+      roadmapMolecules2="Ammonia · Nitrates · Urea"
+      roadmapTarget3="Process Solvents"
+      roadmapMolecules3="Acetone · Benzene · Industrial Alcohols"
+      quote="Complexity is a solved problem. Scale is the next frontier."
+      cite="Abiotic Industrial Manifesto, 2026"
     />
   )
 }

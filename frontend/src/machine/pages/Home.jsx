@@ -17,8 +17,9 @@ export default function Home() {
             <span className="hero-kicker">Deep Technology · Pre-seed Stage</span>
             <p className="hero-desc">We build neural networks that discover machineable pathways to nutritional molecules; where the energy comes entirely from electricity.</p>
             <div className="hero-links">
-              <Link className="hlink" to="/technology">Explore the Platform →</Link>
-              <Link className="hlink" to="/investors">Investor Materials →</Link>
+              <Link className="hlink" to="/nutrition/technology">Explore the Technology →</Link>
+              <Link className="hlink" to="/research">Research &amp; Publications →</Link>
+              <Link className="hlink" to="/nutrition/investors">Investor Materials →</Link>
               <span className="hlink" onClick={openBriefing}>Request a Briefing →</span>
             </div>
           </div>
@@ -129,7 +130,7 @@ export default function Home() {
             </tr>
           </tbody>
         </table>
-        <Link className="text-link" to="/technology">Full methodology and roadmap →</Link>
+        <Link className="text-link" to="/nutrition/technology">Full methodology and roadmap →</Link>
 
         <div className="s-div">§</div>
 

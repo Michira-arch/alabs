@@ -5,7 +5,8 @@ import { AuthProvider } from './hooks/useAuth'
 /* Abiotic Labs home */
 import AbioticHome from './abiotic/AbioticHome'
 
-/* Abiotic Labs division placeholders */
+/* Abiotic Labs division pages */
+import DivisionLayout from './abiotic/DivisionLayout'
 import Drugs from './abiotic/pages/Drugs'
 import Materials from './abiotic/pages/Materials'
 import Fuels from './abiotic/pages/Fuels'
@@ -20,6 +21,11 @@ import Vision from './machine/pages/Vision'
 import About from './machine/pages/About'
 import Investors from './machine/pages/Investors'
 import Contact from './machine/pages/Contact'
+
+/* Abiotic Labs Research & Publications */
+import ResearchLayout from './research/ResearchLayout'
+import ResearchIndex from './research/ResearchIndex'
+import ArticleView from './research/ArticleView'
 
 /* AbioCore (platform) */
 import PlatformLayout from './platform/PlatformLayout'
@@ -36,6 +42,7 @@ import Changelog from './platform/pages/Changelog'
 import Contribute from './platform/pages/Contribute'
 
 /* Shared */
+import ScrollToTop from './components/ScrollToTop'
 import Toast from './components/Toast'
 import NotFound from './components/NotFound'
 
@@ -49,16 +56,38 @@ export default function App() {
 
   return (
     <AuthProvider>
-      <>
+      <ScrollToTop />
       <Routes>
         {/* Abiotic Labs landing page */}
         <Route path="/" element={<AbioticHome />} />
 
         {/* Abiotic Labs division placeholders */}
-        <Route path="/drugs"      element={<Drugs />} />
-        <Route path="/materials"  element={<Materials />} />
-        <Route path="/fuels"      element={<Fuels />} />
-        <Route path="/industrial" element={<Industrial />} />
+        <Route path="/drugs" element={<DivisionLayout label="Abiotic Drugs" path="/drugs" tagline="Pharmaceutical-grade synthesis" />}>
+          <Route index element={<Drugs />} />
+        </Route>
+        <Route path="/materials" element={<DivisionLayout label="Abiotic Materials" path="/materials" tagline="Designer polymers and structural compounds" />}>
+          <Route index element={<Materials />} />
+        </Route>
+        <Route path="/fuels" element={<DivisionLayout label="Abiotic Fuels" path="/fuels" tagline="Carbon-neutral high-energy-density compounds" />}>
+          <Route index element={<Fuels />} />
+        </Route>
+        <Route path="/industrial" element={<DivisionLayout label="Abiotic Industrial" path="/industrial" tagline="Bulk chemical synthesis at scale" />}>
+          <Route index element={<Industrial />} />
+        </Route>
+
+        {/* Abiotic Labs Research & Publications */}
+        <Route path="/research" element={<ResearchLayout />}>
+          <Route index element={<ResearchIndex />} />
+          <Route path=":slug" element={<ArticleView />} />
+        </Route>
+        <Route path="/articles" element={<ResearchLayout />}>
+          <Route index element={<ResearchIndex />} />
+          <Route path=":slug" element={<ArticleView />} />
+        </Route>
+        <Route path="/publications" element={<ResearchLayout />}>
+          <Route index element={<ResearchIndex />} />
+          <Route path=":slug" element={<ArticleView />} />
+        </Route>
 
         {/* Abiotic Nutrition sub-domain (formerly Machine startup website) */}
         <Route path="/nutrition" element={<MachineLayout />}>
@@ -90,7 +119,6 @@ export default function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Toast message={toast.message} visible={toast.visible} />
-      </>
     </AuthProvider>
   )
 }

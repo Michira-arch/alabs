@@ -1,9 +1,9 @@
 import { Outlet, Link, NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import Modal from '../components/Modal'
-import './machine.css'
+import '../machine/machine.css'
 
-export default function MachineLayout() {
+export default function DivisionLayout({ label, path, tagline, meta }) {
   const [briefingOpen, setBriefingOpen] = useState(false)
 
   return (
@@ -12,17 +12,15 @@ export default function MachineLayout() {
       <header className="masthead">
         <span className="mast-logo">
           <Link to="/" style={{ opacity: 0.4, marginRight: '1rem', textDecoration: 'none' }}>←</Link>
-          <Link to="/nutrition">Abiotic Nutrition</Link>
+          <Link to={path}>{label}</Link>
         </span>
-        <span className="mast-meta">Electrochemical Synthesis · Est. 2026 · Pre-Seed Stage</span>
+        <span className="mast-meta">{meta || 'Molecular Pathway Intelligence · Est. 2026'}</span>
         <nav className="mast-nav">
-          <NavLink to="/nutrition/technology">Technology</NavLink>
-          <NavLink to="/nutrition/research">Research</NavLink>
-          <NavLink to="/nutrition/vision">Vision</NavLink>
-          <NavLink to="/nutrition/about">About</NavLink>
-          <NavLink to="/nutrition/investors">Investors</NavLink>
+          <NavLink to={path} end>Overview</NavLink>
+          <NavLink to="/research">Research</NavLink>
+          <NavLink to="/nutrition">Nutrition Division</NavLink>
           <NavLink to="/nutrition/contact">Contact</NavLink>
-          <Link to="/research" style={{ color: '#1a6b4a', fontWeight: 500 }}>Research Hub →</Link>
+          <Link to="/" style={{ color: '#1a6b4a', fontWeight: 500 }}>← All Divisions</Link>
         </nav>
       </header>
 
@@ -33,40 +31,36 @@ export default function MachineLayout() {
       <footer className="machine-footer">
         <div className="foot-grid">
           <div>
-            <span className="foot-logo">Abiotic Nutrition</span>
-            <div className="foot-tag">Electrochemical synthesis,<br />discovered by machine.</div>
+            <span className="foot-logo">{label}</span>
+            <div className="foot-tag">{tagline}</div>
             <button className="foot-brief-btn" onClick={() => setBriefingOpen(true)}>Request a Briefing</button>
           </div>
           <div className="foot-col">
             <h4>Division</h4>
             <ul>
-              <li><Link to="/nutrition/technology">Technology</Link></li>
-              <li><Link to="/nutrition/research">Research</Link></li>
-              <li><Link to="/nutrition/technology">Molecule Roadmap</Link></li>
-              <li><Link to="/research">All Publications →</Link></li>
+              <li><Link to={path}>Overview &amp; Method</Link></li>
+              <li><Link to="/research">Research Papers</Link></li>
+              <li><Link to="/nutrition">Abiotic Nutrition</Link></li>
             </ul>
           </div>
           <div className="foot-col">
             <h4>Company</h4>
             <ul>
-              <li><Link to="/nutrition/vision">Vision</Link></li>
-              <li><Link to="/nutrition/about">About</Link></li>
-              <li><Link to="/nutrition/about">Team</Link></li>
-              <li><Link to="/">← Abiotic Labs</Link></li>
+              <li><Link to="/">← Abiotic Labs Home</Link></li>
+              <li><Link to="/research">Publications</Link></li>
             </ul>
           </div>
           <div className="foot-col">
             <h4>Connect</h4>
             <ul>
-              <li><Link to="/nutrition/investors">Investors</Link></li>
-              <li><Link to="/nutrition/contact">Collaborate</Link></li>
-              <li><Link to="/nutrition/contact">Contact</Link></li>
+              <li><Link to="/nutrition/contact">Contact Us</Link></li>
+              <li><a href="mailto:hello@bld.co.ke">hello@bld.co.ke</a></li>
             </ul>
           </div>
         </div>
         <div className="foot-bottom">
           <span className="foot-legal">© 2026 Abiotic Labs · Privacy · Terms</span>
-          <span className="foot-motto">Feeding the future. No soil required.</span>
+          <span className="foot-motto">Molecular Pathway Intelligence.</span>
         </div>
       </footer>
 
